@@ -17,7 +17,7 @@ router.post('/users', async (req, res) => {
     const token = await user.generateAuthToken();
     res.status(201).send({ user, token });
   } catch (err) {
-    res.status(500).send('Internal Server Error');
+    res.status(400).send(err.message);
   }
 });
 
